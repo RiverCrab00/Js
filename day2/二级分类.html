@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	</script>
+</head>
+<body>
+	<select id="province">
+            <option value="" selected>请选择</option>
+            <option value="山东省" >山东省</option>
+            <option value="辽宁省" >辽宁省</option>
+            <option value="吉林省" >吉林省</option>
+    </select>
+    <select id="city"> 
+            <option id=''>请选择</option>
+    </select>
+</body>
+<script type="text/javascript">
+	var province=document.getElementById('province');
+	province.onchange=function(){
+		var city=document.getElementById('city');
+		console.log(city);
+		city.innerHTML='';
+		province=this.value;
+		switch (province){
+            case "山东省":
+                cities = ['青岛市','济南市','威海市'];
+                break;
+            case "辽宁省":
+                cities = ['沈阳市','大连市','锦州市'];
+                break;
+            case "吉林省":
+                cities = ['吉林市','长春市','四平市'];
+                break;
+            default:
+                 cities = ['请选择'];
+                }   
+		for(var i=0;i<cities.length;i++){
+			var option=document.createElement('option');
+			node=document.createTextNode(cities[i]);
+			option.appendChild(node);
+			city.appendChild(option);
+		}
+	}
+</script>
+</html>

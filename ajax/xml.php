@@ -1,0 +1,12 @@
+<?php 
+header("content-type:text/xml;charset=utf-8");
+echo 
+"<student>
+	<stu>
+		<name>李白</name>
+	</stu>
+	<stu>
+		<name>杜甫</name>
+	</stu>
+</student>";
+?>

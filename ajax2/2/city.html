@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>天气查询功能</title>
+    <!-- 加载自定义ajax相关函数代码库 -->
+    <script src="./ajax.js" charset="utf-8"></script>
+    <script type="text/javascript" >
+    </script>
+  </head>
+  <body>
+    <!-- 构建三级下拉列表 -->
+    省:<select id='province' class="" name="">
+      <option value="">北京</option>
+    </select>
+    市:<select id='city' class="" name="">
+      <option value="">北京</option>
+    </select>
+    地区:<select id='county' class="" name="">
+        <option value="101010100">北京</option>
+        <option value="101010200">海淀</option>
+        <option value="101010300">朝阳</option>
+        <option value="101010400">顺义</option>
+        <option value="101010500">怀柔</option>
+        <option value="101010600">通州</option>
+        <option value="101010700">昌平</option>
+        <option value="101010800">延庆</option>
+        <option value="101010900">丰台</option>
+        <option value="101011000">石景山</option>
+        <option value="101011100">大兴</option>
+        <option value="101011200">房山</option>
+        <option value="101011300">密云</option>
+        <option value="101011400">门头沟</option>
+        <option value="101011500">平谷</option>
+    </select>
+    <input type="button" id='search' name="" value="查询天气">
+    <hr>
+    <div id="result" class="">
+
+    </div>
+  </body>
+</html>

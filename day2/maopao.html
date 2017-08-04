@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="public.js"></script>
+	<style type="text/css">
+	#d1{
+		width: 300px;height: 300px;background: #04F5DA;
+	}
+	#d2{
+		width: 200px;height: 200px;background: #B7F681;
+	}
+	#d3{
+		width: 100px;height: 100px;background: #F596AF;
+	}
+	</style>
+</head>
+<body>
+	<div id='d1'><div id='d2'><div id='d3'></div></div></div>
+	
+</body>
+<script type="text/javascript">
+	var d1=document.getElementById('d1');
+	var d2=document.getElementById('d2');
+	var d3=document.getElementById('d3');
+	d1.onclick=function (){
+		alert('d1');
+	}
+	d2.onclick=function(event){
+		alert('d2');
+		stopMaopao(event);
+	}
+	d3.onclick=function(event){
+		alert('d3');
+		stopMaopao(event);
+	}
+</script>
+</html>

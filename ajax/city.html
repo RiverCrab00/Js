@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<select id='province'>
+	<option value='0'>请选择省</option>
+</select>
+<select id='city'>
+	<option value='0'>请选择市</option>
+</select>
+<select id='area'>
+	<option value='0'>请选择县</option>
+</select>
+</body>
+<script type="text/javascript">
+	
+	window.onload=function(){
+		var province=document.getElementById('province');
+		var xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+		if(xhr.readyState == 4 && xhr.status == 200){
+			var res=JSON.parse(xhr.responseText);
+			var s="<option>请选择省</option>";
+			for(var i=0;i<res.length;i++){
+				s+="<option value="+res[i].Pcode+">"+res[i].Pname+"</option>"
+			}
+			province.innerHTML=s;
+			}		
+		}
+		xhr.open('get','city.php?type=sheng',true);
+		xhr.send(null);	
+	}
+	document.getElementById('province').onchange=function(){
+		var xhr=new XMLHttpRequest();
+		document.getElementById('city').innerHTML="<option>--请选择市--</option>";
+		xhr.onreadystatechange=function(){
+			var s="<option>--请选择市--</option>";
+			if(xhr.readyState==4&&xhr.status==200){
+				var res=JSON.parse(xhr.responseText);
+				
+				for(var i=0;i<res.length;i++){
+					s+="<option value="+res[i].Ccode+">"+res[i].Cname+"</option>"
+				}
+			}
+			document.getElementById('city').innerHTML=s;
+		}
+		xhr.open('get','city.php?type=shi&pcode='+this.value,true);
+		xhr.send(null);
+	}
+	document.getElementById('city').onchange=function(){
+		var xhr=new XMLHttpRequest();
+document.getElementById('area').innerHTML="<option>--请选择县--</option>";
+		xhr.onreadystatechange=function(){
+			var s="<option>--请选择县--</option>";
+			if(xhr.readyState==4&&xhr.status==200){
+				var res=JSON.parse(xhr.responseText);	
+				for(var i=0;i<res.length;i++){
+					s+="<option value="+res[i].Acode+">"+res[i].Aname+"</option>";
+				}
+			}
+			document.getElementById('area').innerHTML=s;
+		}
+		xhr.open('get','city.php?type=xian&ccode='+this.value,true);
+		xhr.send(null);
+	}
+	
+		
+	
+
+	
+</script>
+</html>

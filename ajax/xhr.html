@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			//var xhr=new XMLHttpRequest;
+			//var xhr=new ActiveXObject('Microsoft.XMLHTTP')
+			if(window.HMLHttpRequest){
+				var xhr=new XMLHttpRequest;
+			}else{
+				var xhr=new ActiveXObject('Microsoft.XMLHTTP');
+			}
+
+			console.log(xhr);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

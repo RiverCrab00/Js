@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript">
+    function count(){
+    	var b=document.getElementById('d1');
+    	if(b.value=='提交'){
+    		b.value='sb';
+
+    	}else if(b.value=='sb'){
+    		b.value='提交';
+	    	var zhi=document.getElementById('num');
+	    	var res=zhi.value;
+	    	res=Number(res)+1;
+	    	zhi.value=res;
+    	}
+    	
+
+    }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+	<input type="text" name="num" id="left"><br>
+	<input type="text" name="num2" id="right"><br>
+	记录sb次数:<input type="button" value="1" id='num'>
+	<input type="button" id='d1' value="提交" onclick="count()">
+</body>
+</html>

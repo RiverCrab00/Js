@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		margin:0px;
+		padding: 0px;
+	}
+	ul,li{
+		list-style: none;
+	}
+	li{
+		width: 100px;
+		display: inline-block;
+	}
+	.li_a{
+		background: #EAEAEA;
+	}
+	.content div{
+		
+		display: none;
+	}
+	.content div.div_a{
+		
+		background: #93F8BA;
+		display: block;
+	}
+	</style>
+	<script type="text/javascript">
+		window.onload=function (){
+			var lis=document.getElementsByTagName('li');
+			for(var i=0;i<lis.length;i++){
+				lis[i].index=i;
+				lis[i].onmouseover=function(){
+
+					var divs=document.querySelectorAll('.content div');
+					for(var j=0;j<lis.length;j++){
+						if(this.index==j){
+							lis[this.index].className='li_a';
+							divs[this.index].className='div_a';
+						}else{
+							lis[j].className='';
+							divs[j].className='';
+						}
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul class='title'>
+		<li class='li_a'>三星</li>
+		<li >苹果</li>
+		<li>华为</li>
+	</ul>
+	<div class='content'>
+		<div class='div_a'>s8 edge</div>
+		<div >iphone7</div>
+		<div>mate9</div>
+	</div>
+</body>
+</html>

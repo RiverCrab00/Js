@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="test" id='btn'>
+</body>
+<script type="text/javascript">
+	document.getElementById('btn').onclick=function(event){
+		console.log(event);	
+	}
+	document.body.onkeyup=(function(event){
+		var e=window.event||event;
+		console.log(e.keyCode);
+	})
+</script>
+</html>

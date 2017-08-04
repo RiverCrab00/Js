@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	var i=0;
+	var dsq;
+	window.onload=init;
+	function init(){
+		dsq=window.setInterval("tupian()",1000);
+	}
+	function tupian(){
+		var obj=document.getElementById('img');
+		i++;
+		if(i==6){
+			i=1;
+		}
+		obj.src="../images/cosplay_sexy_2b_0"+i+".jpg"
+	}
+	function stop(){
+		window.clearInterval(dsq);	
+		window.clearInterval(dsq1);	
+	}
+	function start(){
+		dsq1=window.setInterval("tupian()",1000);
+	}
+
+	</script>
+</head>
+<body>
+	<img src="../images/cosplay_sexy_2b_01.jpg" id='img' onmouseout="start()" onmouseover="stop()" width="500">
+</body>
+</html>

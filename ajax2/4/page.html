@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	table{
+		margin:auto;
+		width:40%;
+	}
+	</style>
+<script type="text/javascript">
+var p=1;
+var xhr=new XMLHttpRequest();
+var chuli=function(){
+	if(xhr.readyState==4&&xhr.status==200){
+		var res=JSON.parse(xhr.responseText);
+		var s='';
+		for(var i=0;i<res.length;i++){
+			s+="<tr><td>"+res[i].id+"</td><td>"+res[i].name+"</td><td>"+res[i].age+"</td><td>"+res[i].sex+"</td><td>"+res[i].edu+"</td></tr>";
+		}
+		document.getElementsByTagName('tbody')[0].innerHTML = s;
+	}
+}
+/*var chuli = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                //将json格式的数据转化为js数组
+                var res=JSON.parse(xhr.responseText); //用JSON.parse()也可以
+                var s = '';
+                //循环一次，连接一个<tr><td>1</td><td>张三疯</td>....</tr>
+                for(var i=0; i<res.length; i++){
+                    s += '<tr>';
+                    s += '<td>' + res[i].id + '</td>';
+                    s += '<td>' + res[i].name + '</td>';
+                    s += '<td>' + res[i].age + '</td>';
+                    s += '<td>' + res[i].sex + '</td>';
+                    s += '<td>' + res[i].edu + '</td>';
+                    s += '</tr>';
+                }
+                //把所有行（s）放到tbody中
+                document.getElementsByTagName('tbody')[0].innerHTML = s;
+            }
+        }*/
+xhr.open('get','page.php',true);
+var send=function(){
+	xhr.onreadystatechange=chuli;
+	xhr.open('get','page.php?p='+p);
+	xhr.send();
+}
+window.onload=function(){
+	send()
+	document.getElementById('down').onclick=function(){
+		p=p-1;
+		send()
+	}
+	document.getElementById('up').onclick=function(){
+		p=p+1;
+		send()
+	}
+}
+
+
+</script>
+</head>
+<body>
+<table border='1px'>
+<thead>
+	<tr>
+		<th>ID</th>
+		<th>NAME</th>
+		<th>AGE</th>
+		<th>SEX</th>
+		<th>EDU</th>
+	</tr>
+</thead>
+<tbody>
+	
+</tbody>
+<tr>
+	<td colspan="5" align="center">
+		<input type="button" value="上一页" id='down'>
+		<input type="button" value="下一页" id='up'>
+	</td>
+</tr>
+
+</table>
+</body>
+
+</html>

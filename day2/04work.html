@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>hello</li>
+	</ul>
+	<input type="text" name="username" id="n" maxlength="10">
+</body>
+<script type="text/javascript">
+		var input=document.querySelector('input');
+		
+		input.setAttribute('width',50);
+		console.log(input.attributes);
+		input.setAttribute('maxlength',15);
+		input.removeAttribute('maxlength');
+		console.log(input.hasAttribute('height'));
+</script>
+</html>

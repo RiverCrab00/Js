@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h2>用户未登录</h2>
+	<input type="text" id="name"><br>
+	<input type="password" id="pwd"><br>
+	<input type="submit" value="提交" id='btn'>
+	<input type="reset" value="重置">
+	<ul>
+		<li>dell</li>
+		<li>lenove</li>
+		<li>asus</li>
+	</ul>
+	<ul>
+		<li>iphone</li>
+		<li>sumsang</li>
+		<li>huawei</li>
+	</ul>
+</body>
+<script type="text/javascript">
+	window.onload=function(){
+		document.getElementById('btn').onclick=function(){
+			var name =document.getElementById('name').value;
+			var pwd=document.getELementById('pwd').value;
+			var xhr=new XMLHttpRequest();
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4||xhr.stauts==200){
+
+				}
+			}
+			xhr.open('get','01test.php?name='+name+'&pwd='+pwd,true);
+			xhr.send(null);
+		}
+	}
+</script>
+</html>

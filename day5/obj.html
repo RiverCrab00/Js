@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+	function Person(){
+		//this.name='李雷';
+		this.age=25;
+	}
+	Person.prototype.name='john';
+	Person.prototype.age=18;
+
+	var p1=new Person();
+	console.log(p1.name);
+	var b1=new Person();
+	b1.name='new name';
+	console.log(b1.name);
+	
+</script>
+</body>
+</html>

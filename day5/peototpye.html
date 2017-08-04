@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person(sName){
+			this.name=sName;
+			if(Person.prototype.say)
+		}
+		Person.prototype.say=function(){
+			console.log('say hello');
+		}
+		var p1=new Person('john');
+		p1.say();
+
+		var p2=new Person('marry');
+		p2.say();
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+	</title>
+</head>
+<body>
+<input type="button" value="获取天气信息" id='btn'><br>
+<div id='weather'></div>
+</body>
+<script type="text/javascript">
+	document.getElementById('btn').onclick=function(){
+		var xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4||xhr.status==200){
+				var res=JSON.parse(xhr.responseText);
+				var s=res.data.city;
+				document.getElementById('weather').innerHTML=s;
+			}
+		}
+		xhr.open('get','http:');
+		xhr.send();
+	}
+</script>
+</html>

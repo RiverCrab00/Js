@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function Map(){
+		this.width=500;
+		this.height=500;
+		this.color='#3AFC9C';
+		this.position='absolute';
+		this._map="";
+		this.show=function(){
+			this._map=document.createElement('div');
+			this._map.style.width=this.width+'px';
+			this._map.style.height=this.height+'px';
+			this._map.style.backgroundColor=this.color;
+			this._map.style.position=this.position;
+			document.querySelector('body').appendChild(this._map);
+		}
+		
+	}
+	function Food(){
+		this.width=20;
+		this.height=20;
+		this.color='#FF00F2';
+		this.position='absolute';
+		this._food='';
+		this.show=function (){
+			if(this._food==''){
+				this._food=document.createElement('div');
+			}
+			this._food.style.width=this.width+'px';
+			this._food.style.height=this.height+'px';
+			this._food.style.position=this.position;
+			this._food.style.backgroundColor=this.color;
+			this._food.style.borderRadius='10px';
+			this.x=Math.floor(Math.random()*25);
+			this.y=Math.floor(Math.random()*25);
+			this._food.style.left=this.x*20+'px';
+			this._food.style.top=this.y*20+'px';
+			map._map.appendChild(this._food);
+		}
+	}
+	function Sanke(){
+		this.width=20;
+		this.height=20;
+		this.position='absolute';
+		this.body=[[3,2,'red'],[2,2,'grey'],[1,2,'grey']];
+		this.show=function(){
+			for(var i=0;i<this.body.length;i++){
+				if(this.body[i][3]==null){
+					this.body[i][3]=document.createElement('div');
+				}
+				this.body[i][3].style.width=this.width+'px';
+				this.body[i][3].style.height=this.height+'px';
+				this.body[i][3].style.position=this.position;
+				this.body[i][3].style.backgroundColor=this.body[i][2];
+				this.body[i][3].style.left=this.body[i][0]*20+'px';
+				this.body[i][3].style.top=this.body[i][1]*20+'px';
+				map._map.appendChild(this.body[i][3]);
+			}
+		}
+		this.move=function(){
+			var length=this.body.length;
+			for(var i=length-1;i>0;i--){
+				this.body[i][0]=this.body[i-1][0];
+				this.body[i][1]=this.body[i-1][1];
+			}
+			this.show();
+		}
+	}
+	window.onload=function(){
+		map=new Map();
+		map.show();
+		food=new Food();
+		food.show();
+		sanke=new Sanke();
+		sanke.show();
+		setInterval('sanke.move()',200);
+	}
+</script>
+</html>

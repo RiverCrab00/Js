@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function callback(data){
+			var res=JSON.parse(data);
+			var s='';
+			for(var i=0;i<res.length;i++){
+				s+="<li>"+res[i].Pname+"</li>";
+			}
+			document.getElementsByTagName('ul')[0].innerHTML=s;
+		}
+		window.onload=function(){
+			document.getElementById('btn').onclick=function(){
+				var script=document.createElement('script');
+				script.src='http://www.php59.com/test.php?fn=callback';
+				document.getElementsByTagName('head')[0].appendChild(script);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="获取数据" id='btn'>
+	<hr>
+	<ul>
+
+	</ul>
+</body>
+</html>

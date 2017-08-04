@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>模拟搜索引擎</title>
+    <style media="screen">
+    body{
+      text-align: center;
+    }
+    div{
+      width: 325px;
+      margin: 0 auto;
+    }
+    #result{
+      text-align: left;
+      font-size: 18px;
+      font-family: black;
+    }
+    </style>
+    <!-- 加载封装好的ajax相关代码库 -->
+    <script src="./ajax.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <!-- 构建搜索栏网页元素 -->
+    <div>
+      <div>
+        <h1>黑马搜索</h1>
+        <input type="text" id='keyword' name="" value="" size='40'>
+        <input type="button" name="" value="GO→">
+      </div>
+      <div id="result"></div>
+    </div>
+  </body>
+</html>

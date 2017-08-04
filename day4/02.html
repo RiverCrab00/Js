@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	div{
+		width: 500px;
+		height: 400px;
+		margin:10px auto;
+	}
+	img{
+		width: 500px;
+		position: absolute;
+		/* opacity: 0.5;
+			filter: alpha(opacity=50); */
+		z-index:1; 	
+	}
+	img:first-child{
+		z-index:2;
+	}
+	</style>
+</head>
+<body>
+<div>
+	<img src="../images/cosplay_sexy_2b_01.jpg">
+	<img src="../images/cosplay_sexy_2b_02.jpg">
+	<img src="../images/cosplay_sexy_2b_03.jpg">
+	<img src="../images/cosplay_sexy_2b_04.jpg">
+	<img src="../images/cosplay_sexy_2b_05.jpg">
+</div>
+	<script type="text/javascript">
+		/*var imgs=document.getElementsByTagName('img');
+		var imglen=imgs.length;
+		var inIndex=1;
+		var outIndex=0;
+		setInterval(function(){
+			if(inIndex>=imglen){
+				inIndex=0;
+			}
+			if(outIndex>=imglen){
+				outIndex=0;
+			}
+			console.log("显示"+inIndex);
+			console.log('隐藏'+outIndex);
+			
+			imgs[inIndex].style.zIndex=3;
+			
+			imgs[outIndex].style.zIndex=2;		
+			inIndex++;
+			outIndex++;	
+		},3000)*/
+		var imgs=document.getElementsByTagName('img');
+		var inIndex=1;
+		var outIndex=0;
+		setInterval(function(){
+			if(inIndex>=imgs.length){
+				inIndex=0;
+			}
+			if(outIndex>=imgs.length){
+				outIndex=0;
+			}
+			imgs[inIndex].style.zIndex=3;
+			imgs[outIndex].style.zIndex=2;
+			inIndex++;
+			outIndex++;
+		},2000)
+	</script>
+</body>
+</html>

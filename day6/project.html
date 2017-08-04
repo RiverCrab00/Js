@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form>
+		<input type="text" name="phone">
+		<input type="submit" value="提交">
+	</form>
+</body>
+<script type="text/javascript">
+	var tel='17610352698';
+	var patt=/^1(30|31|32|76|50)\d{8}$/;
+	if(patt.test(tel)){
+		console.log('格式正确');
+	}else{
+		console.log('格式错误');
+	}
+</script>
+</html>

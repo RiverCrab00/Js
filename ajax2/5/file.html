@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<form name='myform'>
+	<input type="file" name="file"><br>
+	<progress value="" max=""></progress>
+	<input type="button" value="提交" id=btn>
+</form>
+</body>
+<script type="text/javascript">
+	document.getElementById('btn').onclick=function(){
+		var xhr=new XMLHttpRequest();
+		var fm=document.myform;
+		var data=new FormData(fm);
+		xhr.upload.onprogress=function(evt){
+			var pro=document.getElementsByTagName('progress')[0];
+			pro.value=evt.loaded;
+			pro.max=evt.total;
+		}
+		xhr.open('post','file.php',true);
+		xhr.send(data);
+	}
+
+</script>
+</html>

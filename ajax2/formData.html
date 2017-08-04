@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form name='myform'>
+		姓名: <input type="text" name="username"><br>
+		性别: 
+		<input type="radio" name="sex"value='男' checked>男
+		<input type="radio" name="sex" value='女'>女
+		<br>
+		<input type="hidden" name="id" value='123'>
+		地址: <select name='addr'>
+			<option value='北京'>北京</option>
+			<option value='上海'>上海</option>
+		</select>
+		<br>
+		简介: 
+		<textarea name='content'>
+			
+		</textarea>
+		<br>
+		上传文件: <input type="file" name="file"><br>
+		<progress value="50" max="100"></progress>
+		<br>
+
+
+		<input type="button" value="提交" id='btn'><br>
+		
+
+	</form>
+</body>
+<script type="text/javascript">
+	window.onload=function(){
+		var btn=document.getElementById('btn');
+		btn.onclick=function(){
+			var fm=document.myform;
+			var data=new FormData(fm);
+			var xhr=new XMLHttpRequest();
+			xhr.onload.onprogress=function(evt){
+				
+			}
+			xhr.open('post','formdata.php',true);
+			xhr.send(data);
+		}
+	}
+</script>
+</html>

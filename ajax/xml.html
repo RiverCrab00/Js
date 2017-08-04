@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<input type="button" value="测试">
+</body>
+<script type="text/javascript">
+	document.getElementsByTagName('input')[0].onclick=function(){
+		var xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState=='4'&&xhr.status=='200'){
+				
+			}
+		}
+		xhr.open('get','xml.php',true);
+		xhr.send();
+	}
+
+</script>
+</html>

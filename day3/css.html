@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div>Hello World</div>
+<script type="text/javascript">
+	//写一个构造方法,写一个给dom对象设置css发的方法,然后调用css方法作为一个div设置样式
+	function c(){
+		//定义成员方法css,为dom对象设置css样式
+		this.css=function(obj,styleName,styleValue){
+			obj.style[styleName]=styleValue;
+		}
+	}
+	var c1=new c();
+	var div=document.getElementsByTagName('div')[0];
+	c1.css(div,'color','red');
+
+</script>
+</body>
+</html>

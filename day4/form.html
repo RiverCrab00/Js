@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	td:nth-child(2n){
+		width: 300px;
+	}
+	table{
+		width:400px;
+	}
+	</style>
+</head>
+<body>
+	<form name='form1' action='1.php' method="post" onsubmit="return checkForm()">
+		<table align='center'>
+			<tr>
+				<td>用户名</td>
+				<td><input type="text" name="username" id=""></td>
+			</tr>
+			<tr>
+				<td>密码</td>
+				<td>
+				<input type="password" name="pwd" onkeyup="checkPwd()">		
+				<span id='sp'></span></td>
+			</tr>
+			<tr>
+				<td>密码确认</td>
+				<td><input type="password" name="pwd2" id=""></td>
+			</tr>
+			<tr>
+				<td>邮箱</td>
+				<td><input type="text" name="email" id=""></td>
+			</tr>
+			<tr>
+				<td>手机号</td>
+				<td><input type="text" name="phone" id=""></td>
+			</tr>
+			<tr>
+				<td colspan="2" align='center'>
+					<input type="submit" value="提交">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
+<script type="text/javascript">
+	function checkPwd(){
+		var pwd=document.form1.pwd.value;
+		var span=document.getElementById('sp');
+		var lower1=/^\d{6,}$/;//弱
+		var lower2=/^[a-z]{6,}$/;//弱
+		var lower3=/^[A-Z]{6,}$/;//弱
+		var mid=/^\w{6,12}$/;//中
+		var pwdReg=/^\w{6,30}$/;
+		if(!pwdReg.test(pwd)){
+			span.innerHTML='密码格式不正确';
+			span.style.color='red';
+			return false;
+		}else if(lower1.test(pwd)||lower2.test(pwd)||lower3.test(pwd)){
+			span.innerHTML='弱';
+			span.style.color='#00FF67';
+		}else if(mid.test(pwd)){
+			span.innerHTML='中';
+			span.style.color='#FFD903';
+		}else{
+			span.innerHTML='强';
+			span.style.color='#57EBFA';
+		}
+	}
+	function checkForm(){
+		var name=document.form1.username.value;
+		var nameReg=/^\w{6,30}$/;
+		var email=document.form1.email.value;
+		var emailReg=/^\w{2,10}@[a-zA-z0-9]{2,10}\.[a-zA-z0-9]{2,10}$/;
+		if(!emailReg.test(email)){
+			alert('邮箱名不合法');
+			return false;
+		}
+		if(!nameReg.test(name)){
+			alert('用户名不合法');
+			return false;
+		}
+	}
+
+</script>

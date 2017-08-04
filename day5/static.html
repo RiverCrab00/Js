@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+	function Person(){
+		Person.x=1;
+		Person.i++;
+	}
+	var p1=new Person();
+	Person.i=0;
+	Person.say=function(){
+		console.log('say hello',Person.i,Person.x);
+	}
+	Person.say();
+	/*var div=document.createElement('div');
+				div.style.width=this.width+'px';
+				div.style.height=this.height+'px';
+				div.style.backgroundColor=this.body[i][2];
+				div.style.position=this.position;
+				div.style.left=this.body[i][0]*20+'px';
+				div.style.top=this.body[i][1]*20+'px';
+				map._map.appendChild(div);*/
+</script>
+</body>
+</html>

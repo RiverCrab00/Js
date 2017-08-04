@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="public.js"></script>
+</head>
+<body>
+	<input type="button" value="测试" id='btn'>
+</body>
+<script>
+	var btn=document.getElementById('btn');
+	console.log(btn);
+	function f1(){
+		alert('123');
+	}
+	addEvent(btn,'click',f1)
+	removeEvent(btn,'click',f1);
+</script>
+</html>

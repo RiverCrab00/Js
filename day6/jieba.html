@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var str='哈哈哈哈我呵呵呵呵呵是嘿嘿嘿嘿';
+	console.log(str.match(/[\u4e00-\u9fa5]/));
+	console.log(str.match(/[\u4e00-\u9fa5]/));
+	console.log(str.match(/[\u4e00-\u9fa5]/));
+	console.log(str.match(/([\u4e00-\u9fa5])\1*/g))
+
+	var res=str.replace(/([\u4e00-\u9fa5])\1*/g,"$1");
+	console.log(res);
+</script>
+</html>

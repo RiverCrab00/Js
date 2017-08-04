@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var map="";
+	function Map(){
+		this.width=800;
+		this.height=400;
+		this._map="";
+		this.color="#EFECEC";
+		this.position='absolute';
+		this.show=function(){
+			this._map=document.createElement('div');
+			this._map.style.width=this.width+'px';
+			this._map.style.height=this.height+'px';
+			this._map.style.backgroundColor=this.color;
+			this._map.style.position=this.position;
+			document.getElementsByTagName('body')[0].appendChild(this._map);
+		}
+	}
+	window.onload=function(){
+		map=new Map();
+		map.show();
+		food=new Food();
+		food.show();
+		snake=new Snake();
+		snake.show();
+		document.onkeydown=function(event){
+			var code='';
+			if(window.event){
+				code=window.event.keyCode;
+			}else{
+				code=event.keyCode;
+			}
+			snake.setDirect(code);
+		}
+		timer=setInterval('snake.move()',100
+			);
+		
+
+	}
+	function Food(){
+		this.width=20;
+		this.height=20
+		this.color='#82FC84';
+		this.position='absolute';
+		this.x=0;
+		this.y=0;
+		this._food=null;
+		this.show=function(){
+			if(this._food==null){
+				this._food=document.createElement('div');
+				this._food.style.width=this.width+'px';
+				this._food.style.height=this.height+'px';
+				this._food.style.backgroundColor=this.color;
+				this._food.style.position=this.position;
+				
+			}
+				this.x=Math.floor(Math.random()*40);
+				this.y=Math.floor(Math.random()*20);
+				this._food.style.left=this.x*20+'px';
+				this._food.style.top=this.y*20+'px';
+				map._map.appendChild(this._food);
+			
+		}
+	}
+	
+	function Snake(){
+		this.width=20;
+		this.height=20;
+		this.position='absolute';
+		this.body=[[3,2,'yellow'],[2,2,'blue'],[1,2,'blue']];
+		this.show=function(){
+			for(var i=0;i<this.body.length;i++){
+				if(this.body[i][3]==null){
+					this.body[i][3]=document.createElement('div');
+					this.body[i][3].style.width=this.width+'px';
+					this.body[i][3].style.height=this.height+'px';
+					this.body[i][3].style.backgroundColor=this.body[i][2];
+					this.body[i][3].style.position=this.position;
+				}
+				this.body[i][3].style.left=this.body[i][0]*20+'px';
+				this.body[i][3].style.top=this.body[i][1]*20+'px';
+				map._map.appendChild(this.body[i][3]);		
+			}
+		}
+		this.setDirect=function(code){
+			switch(code){				
+				case 37:
+				this.direct='left';
+				break;
+				case 38:
+				this.direct='up';
+				break;
+				case 39:
+				this.direct='right';
+				break;
+				case 40:
+				this.direct='down';
+				break;
+			}
+			//console.log(this.direct);
+		}
+		this.move=function(){
+			if(this.body[0][0]==food.x&&this.body[0][1]==food.y){
+				this.body.push([0,0,'blue',null]);
+				food.show();
+			}
+			var length=this.body.length;
+			for(var i=length-1;i>0;i--){
+				this.body[i][0]=this.body[i-1][0];
+				this.body[i][1]=this.body[i-1][1];
+			}
+			if(this.direct=='right'){
+				this.body[0][0]+=1;
+			}else if(!this.direct){
+				this.body[0][0]+=1;
+			}
+			if(this.direct=='left'){
+				this.body[0][0]-=1;
+			}
+			if(this.direct=='up'){
+				this.body[0][1]-=1;
+			}
+			if(this.direct=='down'){
+				this.body[0][1]+=1;
+			}
+			if(this.body[0][0]<0||this.body[0][0]>39||this.body[0][1]<0||this.body[0][1]>19){
+				alert('Game Over');
+				clearInterval(timer);
+				return false;
+			}
+			this.show();
+		}
+		
+	}
+</script>
+</html>

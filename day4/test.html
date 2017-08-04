@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		margin:0px;
+		padding:0px;
+	}
+	ul,li{
+		list-style: none;
+		float:left;
+	}
+	</style>
+</head>
+<body>
+	<ul>
+	<li>&nbsp;</li>
+		<li><image src='images/rank_3.gif'></li>
+		<li><image src='images/rank_4.gif'></li>
+		<li><image src='images/rank_3.gif'></li>
+		<li><image src='images/rank_4.gif'></li>
+		<li><image src='images/rank_3.gif'></li>
+		<li><image src='images/rank_4.gif'></li>
+		<li><image src='images/rank_3.gif'></li>
+		<li><image src='images/rank_4.gif'></li>
+		<li><image src='images/rank_3.gif'></li>
+		<li><image src='images/rank_4.gif'></li>
+	</ul>	
+</body>
+<script type="text/javascript">
+	var lis=document.getElementsByTagName('li');
+	for(var i=0;i<lis.length;i++){
+		lis[i].index=i;
+		lis[i].onmouseover=function(){
+			for(var j=1;j<lis.length;j++){
+				if(j%2==0){
+					lis[j].children[0].src='images/rank_2.gif';
+				}else{
+					lis[j].children[0].src='images/rank_1.gif';
+				}
+				
+			}
+			for(var k=this.index+1;k<lis.length;k++){
+				if(k%2==0){
+					lis[k].children[0].src='images/rank_4.gif';
+				}else{
+					lis[k].children[0].src='images/rank_3.gif';
+				}
+			}			
+		}
+		lis[0].onmouseover=function(){
+			for(var c=1;c<lis.length;c++){
+				if(c%2==0){
+					lis[c].children[0].src='images/rank_4.gif';
+				}else{
+					lis[c].children[0].src='images/rank_3.gif';
+				}
+			}
+		}
+	}
+</script>
+</html>

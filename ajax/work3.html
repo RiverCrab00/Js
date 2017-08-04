@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h2>用户未登录</h2>
+	
+		姓名:<input type="text" name="username" id='name'><br>
+		密码:<input type="password" name="password" id='pwd'><br>
+		<input type="button" value="提交" id='btn'>
+		<input type="reset" value="重置">
+	
+	<h4>其他内容</h4>
+</body>
+
+<script type="text/javascript">
+var btn=document.getElementById('btn');
+btn.onclick=function(){
+	var name=document.getElementById('name').value;	
+	var pwd=document.getElementById('pwd').value;
+	var xhr=new XMLHttpRequest();
+
+	xhr.onreadystatechange=function(){
+
+		if(xhr.readyState==4&&xhr.status==200){		
+			var res=xhr.responseText;
+			if(res){
+				alert('登陆成功');
+			}else{
+				alert('登陆失败');
+			}
+		}
+	}
+	xhr.open('get','work3.php?username='+name+'&password='+pwd+'&f='+Math.random(),true);
+	xhr.send();
+}
+
+
+</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="测试" id='btn'>
+</body>
+<script type="text/javascript">
+	window.onload=function(){
+		document.getElementById('btn').onclick=function(){
+			var xhr=new XMLHttpRequest();
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					alert(xhr.responseText);
+				}
+			}
+			xhr.open('get','http://www.php59.com/test.php',true);
+			xhr.send();
+		}
+	}
+</script>
+</html>
